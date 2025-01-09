@@ -15,4 +15,29 @@ class SkiResortService {
         }
         }
 
-}
+        private parseCSV(csvData: string): SkiResort[]{
+        const lines = csvData.split('\n');
+        const headers = lines[0].split(',');
+        return lines.slice(1).map((line, index) => {
+            const values = line.split(',');
+            const resort: any = { id: index };
+            headers.forEach((header, i) => {
+                resort[header] = this.parseValue(values[i]);
+            });
+            return resort as SkiResort;
+        });
+        }
+
+        private parseValue(value: string): any {
+          if (value === 'Yes') return true;
+          if (value === 'No') return false;
+          const num = Number(value);
+          return isNaN(num) ? value : num;
+        }
+
+        getSkiResortById(id: number): SkiResort | undefined {
+        return this.skiResorts.find(resort => resort.id === id);
+        }
+    }
+
+    export const skiResortService = new SkiResortService();
