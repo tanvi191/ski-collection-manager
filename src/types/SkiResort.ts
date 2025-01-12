@@ -1,19 +1,22 @@
 export interface SkiResort {
-    BeginnerSlope: number;
-    ChairLifts: number;
-    Country: string;
-    DayPassPriceAdult: number;
-    DifficultSlope: number;
-    HighestPoint: number;
-    IntermediateSlope: number;
-    LiftCapacity: number;
-    LowestPoint: number;
-    NightSki: boolean;
-    Resort: string;
-    SnowCannons: number;
-    SnowParks: boolean;
-    SurfaceLifts: number;
-    TotalLifts: number;
-    TotalSlope: number;
     id: number;
+    Resort: string;
+    Country: string;
+    HighestPoint: number;
+    LowestPoint: number;
+    DayPassPriceAdult: number;
+    BeginnerSlope: number;
+    IntermediateSlope: number;
+    DifficultSlope: number;
+    TotalSlope: number;
+    SnowParks: boolean;
+    NightSki: boolean;
+    SurfaceLifts: number;
+    ChairLifts: number;
+    GondolaLifts: number;
+    TotalLifts: number;
+    LiftCapacity: number;
+    SnowCannons: number;
+    [key: string]: string | number | boolean; // Allow for additional properties
 }
+
